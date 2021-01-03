@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Life is Egg</title>
+  </head>
+  <body>
+    <div id="app" class="">
+      <child-component v-on:show-log="printText"></child-component>
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script>
+
+      Vue.component('child-component', {
+        template: '<button v-on:click="showLog">show! 끝은 없는 거야</button>',
+        methods: {
+          showLog: function() {
+            this.$emit('show-log');
+          }
+        }
+      });
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: '안녕하신가 힘세고 강한 아침, 만일 내게 물어보면 나는 왈도.'
+      },
+      methods: {
+        printText: function() {
+          console.log('received an event');
+        }
+      }
+    });
+
+  </script>
+</html>

@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Life is Egg - Drectives</title>
+  </head>
+  <body>
+    <div id="app" class="">
+      <a v-if="flag">두잇 Vue.js</a>
+      <ul>
+        <li v-for="system in systems">{{ system }}</li>
+      </ul>
+      <p v-show="flag">Do it! Vue.js</p>
+      <h5 v-bind:id="uid">뷰에 입문하는 중입니다. 아버지.</h5>
+      <button v-on:click="popupAlert" type="button" name="button">경고</button>
+      <button v-on:click="clickBtn" type="button" name="button">클릭</button>
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        flag: true,
+        systems: ['불성', '리치왕', '대격변'],
+        uid: 'Arthas'
+      },
+      methods: {
+        popupAlert: function() {
+          return alert('공격받고 있습니다!')
+        },
+        clickBtn: function() {
+          alert('날 믿었다니 티리엘은 얼간이야!');
+        }
+      }
+    })
+
+  </script>
+</html>
